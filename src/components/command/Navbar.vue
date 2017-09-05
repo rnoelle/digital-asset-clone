@@ -25,6 +25,9 @@ export default {
     height: 94px;
     background: $secondary;
     float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     a.router-link-exact-active {
       color: #FFFFFF;

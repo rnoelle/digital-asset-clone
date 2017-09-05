@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 
+
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -15,6 +16,9 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
+          },
+          transformToRequire: {
+            video: 'src'
           }
           // other vue-loader options go here
         }
@@ -30,6 +34,10 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      },
+      {
+        test: /\.mp4$/,
+        loader: 'file-loader'
       },
       {
         test: /\.scss$/,
