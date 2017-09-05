@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <Navbar></Navbar>
     <h2>Essential Links</h2>
-    <router-view></router-view>
+    <router-view v-bind:active="$route.name"></router-view>
   </div>
 </template>
 
 <script>
+import Navbar from './components/command/Navbar.vue';
+
 export default {
   name: 'app',
+  components: { Navbar },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
@@ -19,28 +21,24 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans');
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
-h1, h2 {
-  font-weight: normal;
+h1, h2, h3, h4, h5, h6, button, a {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
 }
-
+p, span {
+  font-family: 'Open Sans', sans-serif;
+}
 ul {
   list-style-type: none;
   padding: 0;
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 
 a {
   color: #42b983;
