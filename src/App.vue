@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Navbar></Navbar>
-    <h2>Essential Links</h2>
     <router-view v-bind:active="$route.name"></router-view>
   </div>
 </template>

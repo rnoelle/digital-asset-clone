@@ -1,13 +1,17 @@
 <template>
   <div class="home-page">
-    <video autoplay src="../../assets/v02.mp4"></video>
+    <JumboVideo />
   </div>
 </template>
 
 <script>
+  import JumboVideo from '../pres/JumboVideo.vue';
 
   export default {
     name: 'Home',
+    components: {
+      JumboVideo
+    },
     data() {
       return {
 
@@ -20,11 +24,5 @@
   h1 {
     color: #93c390;
   }
-  video {
-    width: 100%;
-    position: absolute;
-    top:0;
-    left: 0;
-    z-index: -1;
-  }
+
 </style>
