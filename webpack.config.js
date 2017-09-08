@@ -18,7 +18,8 @@ module.exports = {
           loaders: {
           },
           transformToRequire: {
-            video: 'src'
+            video: 'src',
+            img: 'src'
           }
           // other vue-loader options go here
         }

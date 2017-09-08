@@ -19,8 +19,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans');
+@import 'styles/global';
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
