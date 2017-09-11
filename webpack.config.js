@@ -21,7 +21,6 @@ module.exports = {
             video: 'src',
             img: 'src'
           }
-          // other vue-loader options go here
         }
       },
       {
@@ -30,7 +29,11 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.svg$/,
+        loader: 'vue-svg-loader', // `vue-svg` for webpack 1.x
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
