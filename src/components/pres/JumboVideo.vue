@@ -10,6 +10,10 @@
 
 <script>
   export default {
+    props: [
+      'startNext',
+      'slide'
+    ],
     mounted() {
       var video0 = document.getElementById('vid0')
         , video1 = document.getElementById('vid1')
@@ -17,20 +21,35 @@
         ;
 
       video0.onended = () => {
+        this.startNext(1)
         video1.play();
         this.vid1 = .99;
         this.vid0 = 0;
       }
       video1.onended = () => {
+        this.startNext(2)
         video2.play();
         this.vid2 = .99;
         this.vid1 = 0;
       }
       video2.onended = () => {
+        this.startNext(0)
         video0.play();
         this.vid0 = .99;
         this.vid2 = 0;
       }
+    },
+    beforeUpdate() {
+      console.log('before update', this.slide);
+      var video = document.getElementById(`vid${this.slide}`);
+      video.pause();
+    },
+    updated() {
+      var video = document.getElementById(`vid${this.slide}`);
+      video.play();
+      this[`vid${this.slide}`] = .99;
+      this[`vid${(this.slide + 1) % 3}`] = 0;
+      this[`vid${(this.slide + 2) % 3}`] = 0;
     },
     data() {
       return {
@@ -66,7 +85,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     z-index: -1;
   }
